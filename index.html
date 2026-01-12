@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<title>Dashboard Garis Kemiskinan Jawa Barat</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+:root{
+  --primary:#2e7d32;
+  --primary-dark:#1b5e20;
+  --primary-light:#4caf50;
+  --bg:#f4f6f8;
+  --card:#ffffff;
+  --radius:14px;
+}
+
+html,body{
+  margin:0;
+  height:100%;
+  font-family:Segoe UI,Arial,sans-serif;
+  background:var(--bg);
+}
+
+body{
+  display:flex;
+  flex-direction:column;
+  color:#1f2937;
+}
+
+/* HEADER */
+.header{
+  position: relative;
+  background:
+    linear-gradient(
+      rgba(27,94,32,0.75),
+      rgba(27,94,32,0.75)
+    ),
+    url("gedungsate.jpg");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 28px 20px;
+  text-align: center;
+}
+
+/* LOGO DI POJOK KIRI */
+.header-logo{
+  position: absolute;
+  left: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 70px;
+  height: auto;
+}
+
+/* TEKS TETAP DI TENGAH */
+.header-text h1{
+  margin: 0;
+  font-size: 28px;
+}
+
+.header-text p{
+  margin-top: 6px;
+  opacity: 0.9;
+}
+
+
+
+
+header h1{margin:0;font-size:28px}
+header p{margin-top:6px;opacity:.9}
+
+/* TAB MENU */
+.tab-menu{
+  background:#1b5e20;
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  padding:10px;
+  flex-wrap:wrap;
+}
+
+.tab-menu button{
+  background:transparent;
+  border:none;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+  padding:10px 16px;
+}
+
+.tab-menu button.active{
+  background:white;
+  color:#1b5e20;
+  border-radius:8px;
+}
+
+/* CONTAINER */
+.container{
+  flex:1;
+  padding:30px;
+  max-width:1400px;
+  margin:auto;
+  width:100%;
+}
+
+/* CARD */
+.card{
+  background:var(--card);
+  padding:24px;
+  border-radius:var(--radius);
+  box-shadow:0 10px 26px rgba(0,0,0,.08);
+  margin-bottom:24px;
+}
+
+.tab-content{display:none}
+.tab-content.active{display:block}
+
+/* DASHBOARD GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:24px;
+  margin-top:20px;
+}
+
+.metric{
+  text-align:center;
+  padding:26px;
+  border-radius:var(--radius);
+  background:linear-gradient(135deg,#e8f5e9,#ffffff);
+}
+
+.metric h2{
+  margin:0;
+  color:var(--primary);
+  font-size:28px;
+}
+
+/* TABLE */
+table{
+  width:100%;
+  border-collapse:collapse;
+  border-radius:12px;
+  overflow:hidden;
+}
+
+th{
+  background:linear-gradient(135deg,#2e7d32,#1b5e20);
+  color:white;
+  padding:12px;
+}
+
+td{
+  padding:12px;
+  text-align:center;
+  background:#f8fafc;
+}
+
+tr:nth-child(even) td{
+  background:#ecfdf5;
+}
+
+/* CHART */
+canvas{
+  width:100%!important;
+  max-height:420px;
+}
+
+/* SNA */
+#snaNetwork{
+  height:420px;
+  background:#0f172a;
+  border-radius:var(--radius);
+  box-shadow:0 12px 30px rgba(0,0,0,.35);
+}
+
+select{
+  padding:6px 10px;
+  border-radius:8px;
+  border:1px solid #cbd5e1;
+  margin-left:8px;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:16px;
+  background:#e5e7eb;
+  font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+  <img src="logojabar.png" alt="Logo" class="header-logo">
+
+  <div class="header-text">
+    <h1>Dashboard Garis Kemiskinan Jawa Barat</h1>
+    <p>Analisis Big Data Sosial Ekonomi (2022–2024)</p>
+  </div>
+</header>
+
+
+<div class="tab-menu">
+<button class="tab-btn active" onclick="openTab('dashboard',this)">Dashboard</button>
+<button class="tab-btn" onclick="openTab('deskripsi',this)">Deskripsi Data</button>
+<button class="tab-btn" onclick="openTab('tabel',this)">Tabel Data</button>
+<button class="tab-btn" onclick="openTab('grafik',this)">Grafik</button>
+<button class="tab-btn" onclick="openTab('sna',this)">SNA</button>
+</div>
+
+<div class="container">
+
+<div id="dashboard" class="tab-content active card">
+<h2>Ringkasan Utama</h2>
+<div class="grid">
+  <div class="metric"><h2>Rp 416.000</h2><p>2022</p></div>
+  <div class="metric"><h2>Rp 439.000</h2><p>2023</p></div>
+  <div class="metric"><h2>Rp 460.000</h2><p>2024</p></div>
+</div>
+</div>
+
+<section id="deskripsi" class="tab-content card">
+  <h2>Deskripsi Dataset</h2>
+  <p>Dataset ini berisi data garis kemiskinan per tahun di Provinsi Jawa Barat pada periode 2022–2024.</p>
+  <ul>
+    <li>garis_kemiskinan: nilai garis kemiskinan per tahun (numerik)</li>
+    <li>satuan: rupiah</li>
+    <li>tahun: tahun produksi data</li>
+  </ul>
+</section>
+
+<div id="tabel" class="tab-content card">
+<h2>Tabel Data</h2>
+<table>
+<tr><th>Tahun</th><th>Garis Kemiskinan (Rp)</th></tr>
+<tr><td>2022</td><td>416.000</td></tr>
+<tr><td>2023</td><td>439.000</td></tr>
+<tr><td>2024</td><td>460.000</td></tr>
+</table>
+</div>
+
+<div id="grafik" class="tab-content">
+
+  <!-- CARD GRAFIK -->
+  <section class="card">
+    <h2>Grafik Tren</h2>
+    <canvas id="kemiskinanChart"></canvas>
+  </section>
+
+  <!-- CARD INSIGHT (TEPAT DI BAWAH GRAFIK) -->
+  <section class="card">
+    <h2>Insight Utama</h2>
+    <ul class="insight-list">
+      <li>Garis kemiskinan di Provinsi Jawa Barat mengalami kenaikan konsisten selama periode 2022–2024.</li>
+      <li>Kenaikan paling signifikan terjadi antara tahun 2023 dan 2024.</li>
+      <li>Faktor inflasi dan harga pangan memiliki keterkaitan paling dominan terhadap perubahan garis kemiskinan.</li>
+    </ul>
+  </section>
+
+</div>
+
+<div id="sna" class="tab-content card">
+<h2>Social Network Analysis (SNA)</h2>
+<p>Relasi antara tahun dan faktor sosial ekonomi.</p>
+
+<label>Filter Tahun:</label>
+<select id="filterYear" onchange="renderSNA()">
+<option value="all">Semua</option>
+<option value="2022">2022</option>
+<option value="2023">2023</option>
+<option value="2024">2024</option>
+</select>
+
+<div id="degreeInfo" style="margin:12px 0"></div>
+
+<div style="display:flex;gap:12px;font-size:14px;margin-bottom:10px">
+<div><span style="color:#22c55e">●</span> Tahun</div>
+<div><span style="color:#38bdf8">●</span> Faktor</div>
+</div>
+
+<div id="snaNetwork"></div>
+</div>
+
+</div>
+
+<footer>© 2026 | Dashboard Sosial Ekonomi Jawa Barat</footer>
+
+<script>
+function openTab(id,btn){
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  if(id==='sna') renderSNA();
+}
+
+/* CHART */
+new Chart(document.getElementById('kemiskinanChart'),{
+  type:'line',
+  data:{
+    labels:['2022','2023','2024'],
+    datasets:[{
+      label:'Garis Kemiskinan (Rp)',
+      data:[416000,439000,460000],
+      borderColor:'#2e7d32',
+      backgroundColor:'rgba(46,125,50,.15)',
+      borderWidth:3,
+      tension:.3
+    }]
+  }
+});
+
+/* SNA */
+const baseNodes=[
+{id:'2022',type:'year'},{id:'2023',type:'year'},{id:'2024',type:'year'},
+{id:'Inflasi',type:'factor'},{id:'Harga Pangan',type:'factor'},{id:'Biaya Hidup',type:'factor'}
+];
+const baseLinks=[
+{s:'2022',t:'Inflasi'},
+{s:'2023',t:'Inflasi'},
+{s:'2023',t:'Harga Pangan'},
+{s:'2024',t:'Harga Pangan'},
+{s:'2024',t:'Biaya Hidup'}
+];
+
+function renderSNA(){
+const year=document.getElementById('filterYear').value;
+const box=document.getElementById('snaNetwork');
+box.innerHTML='';
+const nodes=baseNodes.filter(n=>year==='all'||n.id===year||n.type==='factor');
+const idx={};nodes.forEach((n,i)=>idx[n.id]=i);
+const links=baseLinks.filter(l=>idx[l.s]!=null&&idx[l.t]!=null);
+
+const w=box.clientWidth,h=box.clientHeight;
+const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
+svg.setAttribute('width',w);svg.setAttribute('height',h);
+box.appendChild(svg);
+
+const cx=w/2,cy=h/2,r=140;
+nodes.forEach((n,i)=>{n.x=cx+r*Math.cos(i/nodes.length*2*Math.PI);n.y=cy+r*Math.sin(i/nodes.length*2*Math.PI);});
+
+const degree={};
+links.forEach(l=>{degree[l.s]=(degree[l.s]||0)+1;degree[l.t]=(degree[l.t]||0)+1});
+document.getElementById('degreeInfo').innerHTML='<b>Degree Centrality</b><br>'+Object.entries(degree).map(d=>`${d[0]}: ${d[1]}`).join('<br>');
+
+links.forEach(l=>{
+const a=nodes[idx[l.s]],b=nodes[idx[l.t]];
+const line=document.createElementNS('http://www.w3.org/2000/svg','line');
+line.setAttribute('x1',a.x);line.setAttribute('y1',a.y);
+line.setAttribute('x2',b.x);line.setAttribute('y2',b.y);
+line.setAttribute('stroke','#94a3b8');
+svg.appendChild(line);
+});
+
+nodes.forEach(n=>{
+const c=document.createElementNS('http://www.w3.org/2000/svg','circle');
+c.setAttribute('cx',n.x);c.setAttribute('cy',n.y);c.setAttribute('r',16);
+c.setAttribute('fill',n.type==='year'?'#22c55e':'#38bdf8');
+svg.appendChild(c);
+const t=document.createElementNS('http://www.w3.org/2000/svg','text');
+t.setAttribute('x',n.x);t.setAttribute('y',n.y+4);
+t.setAttribute('text-anchor','middle');
+t.setAttribute('fill','#fff');
+t.setAttribute('font-size','10');
+t.textContent=n.id;
+svg.appendChild(t);
+});
+}
+</script>
+
+</body>
+</html>
