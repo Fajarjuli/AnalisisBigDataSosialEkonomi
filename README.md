@@ -1,8 +1,5 @@
 # 📊 Dashboard Analisis Garis Kemiskinan Jawa Barat
 
-### Tampilan Utama
-![Tampilan Utama](ss1.png)
-
 Proyek ini merupakan aplikasi dashboard berbasis web yang dikembangkan untuk menganalisis dan memvisualisasikan data garis kemiskinan di Provinsi Jawa Barat. Menggunakan pendekatan Big Data Analytics, visualisasi interaktif, dan *Social Network Analysis* (SNA), dashboard ini bertujuan membantu pengguna memahami tren kemiskinan serta faktor sosial ekonomi yang memengaruhinya secara komprehensif.
 
 ## 🌟 Sorotan Utama
@@ -54,6 +51,22 @@ Aplikasi ini dapat di-hosting secara gratis menggunakan GitHub Pages.
 
 5. Klik **Save**.
 6. Tunggu beberapa saat, dashboard Anda akan aktif di URL: `https://fajarjuli.github.io/AnalisisBigDataSosialEkonomi/`
+
+## 📸 DOKUMENTASI
+
+### Tampilan Utama
+![Tampilan Utama](ss1.png)
+
+### Grafik Garis Kemiskinan
+![Grafik Kemiskinan](ss2.png)
+
+### Tabel Data
+![Tabel Data](ss3.png)
+
+### Visualisasi Tambahan
+![Visualisasi 1](ss4.png)
+![Visualisasi 2](ss5.png)
+   
 
 ## 📝 Kesimpulan
 
