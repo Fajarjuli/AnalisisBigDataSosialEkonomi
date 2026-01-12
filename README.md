@@ -2,7 +2,18 @@
 
 📌 **Dashboard Garis Kemiskinan Jawa Barat**
 
-![Dashboard Garis Kemiskinan](ss1.png)
+### Tampilan Utama
+![Tampilan Utama](ss1.png)
+
+### Grafik Garis Kemiskinan
+![Grafik Kemiskinan](ss2.png)
+
+### Tabel Data
+![Tabel Data](ss3.png)
+
+### Visualisasi Tambahan
+![Visualisasi 1](ss4.png)
+![Visualisasi 2](ss5.png)
 
 Dashboard Analisis Garis Kemiskinan Jawa Barat
 
