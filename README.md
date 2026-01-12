@@ -1,7 +1,7 @@
 # 📊 Dashboard Analisis Garis Kemiskinan Jawa Barat
 
-### Tampilan SNA
-![Visualisasi ](ss5.png)
+### Tampilan Utama
+![Tampilan Utama](ss1.png)
 
 Proyek ini merupakan aplikasi dashboard berbasis web yang dikembangkan untuk menganalisis dan memvisualisasikan data garis kemiskinan di Provinsi Jawa Barat. Menggunakan pendekatan Big Data Analytics, visualisasi interaktif, dan *Social Network Analysis* (SNA), dashboard ini bertujuan membantu pengguna memahami tren kemiskinan serta faktor sosial ekonomi yang memengaruhinya secara komprehensif.
 
