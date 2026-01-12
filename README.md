@@ -1,51 +1,86 @@
-# Dashboard Garis Kemiskinan Jawa Barat
+# 📊 Analisis Big Data Sosial Ekonomi
 
-git add .
-git commit -m "Initial commit"
-git branch -M main
-git push -u origin main
-Proyek sederhana: halaman statis `index.html` berisi dashboard "Garis Kemiskinan Jawa Barat".
+📌 **Dashboard Garis Kemiskinan Jawa Barat**
 
-Deskripsi singkat
-- Dashboard statis (HTML/CSS/JS) menampilkan ringkasan garis kemiskinan Jawa Barat (2022–2024), tabel, grafik, dan visual SNA sederhana.
+Proyek ini adalah sebuah **halaman dashboard statis (HTML/CSS/JS)** yang menampilkan visualisasi garis kemiskinan di **Jawa Barat (2022–2024)**. Dashboard ini dibuat sebagai bagian dari analisis data sosial–ekonomi menggunakan teknik visualisasi sederhana dan dapat dibuka langsung di browser tanpa lingkungan backend.
 
-Struktur proyek
-- `index.html` — halaman dashboard utama (buka langsung di browser).
-- `README.md` — dokumen ini.
-- `.gitignore` — file pengecualian git.
+---
 
-Menjalankan lokal
-- Cara paling mudah: buka file `index.html` di browser (double-click atau `Ctrl+O`).
-- Untuk development dengan server lokal (opsional):
-  - Jika Anda punya Python 3: `python -m http.server 8000` lalu buka `http://localhost:8000/`.
-  - Atau gunakan VS Code Live Server extension.
+## 🧾 Deskripsi
 
-Deploy ke GitHub (ringkas)
-1) Jika belum membuat repo GitHub, buat repo baru di https://github.com/new.
-2) Jalankan di PowerShell dari folder proyek:
+Repositori ini berisi:
 
-```powershell
-cd "c:\xampp\htdocs\AnalisisBigDataSosialEkonomi"
-git init
-git add .
-git commit -m "Initial commit"
-git branch -M main
-git remote add origin https://github.com/<USERNAME>/<REPO_NAME>.git
-git push -u origin main
-```
+- `index.html` — Halaman dashboard utama  
+- Beberapa asset seperti gambar/logo untuk visualisasi  
+- Dokumen README ini sebagai dokumentasi  
+- `.gitignore` untuk mengelola file yang diabaikan oleh Git  
 
-Aktifkan GitHub Pages (opsional)
-- Web: buka `Settings` → `Pages` di repo GitHub, pilih `Branch: main` dan folder `/ (root)`, lalu klik `Save`.
-- CLI (jika `gh` terpasang):
-  - `gh auth login`
-  - `gh api -X POST /repos/<USERNAME>/<REPO_NAME>/pages -f source.branch=main -f source.path=/`
+Dashboard ini menampilkan **tabel, grafik, dan gambaran ringkas garis kemiskinan** yang bisa digunakan sebagai bahan laporan atau presentasi analisis sosial ekonomi.
 
-Catatan
-- Jika Anda ingin, saya bisa membantu menyiapkan `gh` atau menjalankan langkah-langkah di terminal Anda.
-- Jangan letakkan credential/token di file proyek.
+---
 
-Lisensi & Kontak
-- Lisensi: tidak dispesifikasikan (tambahkan file `LICENSE` jika perlu).
-- Kontak: tambahkan alamat email atau nama pemilik repo di GitHub.
+## 📂 Struktur Proyek
 
-Terakhir: beri tahu saya jika Anda mau saya aktifkan GitHub Pages (saya akan pandu atau jalankan perintah jika Anda mengizinkan). 
+/
+├── index.html # Halaman utama dashboard
+├── README.md # Dokumentasi proyek
+├── .gitignore # Ignore rules Git
+├── logojabar.png # Logo / visual Jawa Barat
+├── ss1.png … ss5.png # Screenshot / visual data
+├── gedungsate.jpg # Gambar tambahan
+└── … # Asset lainnya
+
+yaml
+Copy code
+
+---
+
+## 🚀 Cara Menjalankan
+
+### **Langsung di Browser**
+1. **Download / Clone** repositori ini:
+   ```bash
+   git clone https://github.com/Fajarjuli/AnalisisBigDataSosialEkonomi.git
+Buka file index.html dengan double-click atau pilih Open with Live Server (jika memakai VS Code).
+
+Opsional — Server Lokal
+Kalau ingin pakai server sederhana (misalnya Python):
+
+bash
+Copy code
+cd AnalisisBigDataSosialEkonomi
+python -m http.server 8000
+Lalu buka di browser:
+
+arduino
+Copy code
+http://localhost:8000
+📌 Deployment ke GitHub Pages (Opsional)
+Supaya dashboard bisa diakses di web:
+
+Masuk ke tab Settings > Pages di GitHub
+
+Pilih branch: main dan folder / (root)
+
+Klik Save
+
+Dashboard akan tersedia di <username>.github.io/AnalisisBigDataSosialEkonomi
+
+💡 Ini cocok untuk share hasil kerja ke teman atau dosen tanpa perlu hosting berbayar.
+
+🛠️ Teknologi yang Digunakan
+✨ HTML, CSS dan JavaScript untuk front-end
+📈 Visualisasi dashboard tanpa backend
+📁 Struktur sederhana untuk kemudahan modifikasi
+
+📌 Catatan Pengembang
+Tambahkan file LICENSE jika kamu ingin menentukan lisensi proyek ini.
+
+Sertakan kontak/email di README jika orang lain ingin tanya atau kontribusi.
+
+Kalau ingin memperluas proyek, bisa ditambahkan dataset baru atau fitur filter.
+
+📬 Kontak
+📧 Tambahkan email atau media sosial kamu di sini supaya orang lain bisa menghubungi kamu jika perlu.
+
+Terima kasih sudah melihat proyek ini! 🚀
